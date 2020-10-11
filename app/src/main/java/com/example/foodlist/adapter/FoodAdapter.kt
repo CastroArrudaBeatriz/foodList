@@ -17,14 +17,20 @@ class FoodAdapter(private val context: Context,
                   private val callback: KFunction2<Food, Int, Unit>
 ) : RecyclerView.Adapter<FoodAdapter.ViewHolder>(){
 
-    //view holder make struct to item
+    /**
+     * @author beatriz.castro
+     * make struct to item
+     * */
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val foodImageView: ImageView = view.imageView
         val foodName: TextView = view.food_name
         val foodPrice: TextView = view.food_price
     }
 
-
+    /**
+     * @author beatriz.castro
+     * inflate recyclerview, use viewHolder to item base
+     * */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutReference = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
         val viewHolder = ViewHolder(layoutReference)
