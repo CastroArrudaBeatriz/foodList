@@ -2,12 +2,16 @@ package com.example.foodlist
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlist.adapter.FoodAdapter
 import com.example.foodlist.model.Food
 import com.example.foodlist.utils.Constants
 import com.example.foodlist.utils.FoodActions
+import com.example.foodlist.utils.SwipeToDelete
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -29,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setupFoodList()
         addButtonListener()
+        initSwipeToDelete()
     }
 
     /**
@@ -62,6 +67,22 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(Constants.FOOD_PRICE, food.price)
         intent.putExtra(Constants.FOOD_INDEX, position)
         startActivityForResult(intent, Constants.INTENT_FOOD_ID_EDIT)
+    }
+
+    /**
+     * @author beatriz.castro
+     * Method to create ItemTouchHelper and remove item on swipe to left
+     * */
+    private fun initSwipeToDelete(){
+        val item = object:SwipeToDelete(this, ItemTouchHelper.DOWN, ItemTouchHelper.LEFT){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                FoodActions.removeFood(viewHolder,foodList,foodAdapter)
+                Toast.makeText(applicationContext, getString(R.string.remove_food_alert), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(item)
+        itemTouchHelper.attachToRecyclerView(list_food)
     }
 
 

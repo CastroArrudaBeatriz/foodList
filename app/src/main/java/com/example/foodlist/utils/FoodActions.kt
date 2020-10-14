@@ -2,6 +2,7 @@ package com.example.foodlist.utils
 
 import android.app.Activity
 import android.content.Intent
+import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlist.adapter.FoodAdapter
 import com.example.foodlist.model.Food
 
@@ -27,6 +28,15 @@ object FoodActions {
             }
         }
         foodAdapter.notifyItemChanged(position)
+    }
+
+    /**
+     * @author beatriz.castro
+     * Method to remove food on swipe
+     * */
+    fun removeFood(viewHolder: RecyclerView.ViewHolder, foodList: ArrayList<Food>, foodAdapter: FoodAdapter){
+        foodList.removeAt(viewHolder.adapterPosition)
+        foodAdapter.notifyDataSetChanged()
     }
 
     /**

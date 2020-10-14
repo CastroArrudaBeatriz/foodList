@@ -37,7 +37,7 @@ class FoodAdapter(private val context: Context,
 
         viewHolder.itemView.setOnClickListener {
             val food = foods[viewHolder.adapterPosition]
-            callback(food , foods.indexOf(food))
+            callback(food , viewHolder.adapterPosition)
         }
         return viewHolder
     }
