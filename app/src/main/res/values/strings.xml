@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">foodList</string>
-    <string name="string_food_name">name</string>
-    <string name="food_price">price</string>
-    <string name="add_food">save</string>
-    <string name="remove_food_alert">food successfully removed</string>
+    <string name="app_name">Lista de Compras</string>
+    <string name="string_food_name">nome</string>
+    <string name="food_price">preço</string>
+    <string name="add_food">salvar</string>
+    <string name="remove_food_alert">item removido com sucesso!</string>
 </resources>

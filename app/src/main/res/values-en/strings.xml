@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Food List</string>
+    <string name="string_food_name">name</string>
+    <string name="food_price">price</string>
+    <string name="add_food">save</string>
+    <string name="remove_food_alert">food successfully removed!</string>
+</resources>
